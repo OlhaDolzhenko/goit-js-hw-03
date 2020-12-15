@@ -6,7 +6,7 @@ const products = [
 ];
 
 const calculateTotalPrice = function (allProdcuts, productName) {
-  let total;
+  let total = 0;
   for (const item of allProdcuts) {
     if (item.name === productName) {
       total = item.price * item.quantity;
@@ -16,6 +16,6 @@ const calculateTotalPrice = function (allProdcuts, productName) {
   return total;
 };
 
-console.log(calculateTotalPrice(products, "Радар")); // 5200
+console.log(calculateTotalPrice(products, "Радар"));
 
-console.log(calculateTotalPrice(products, "Дроид")); // 2800
+console.log(calculateTotalPrice(products, "Дроид"));
