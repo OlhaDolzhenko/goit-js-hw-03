@@ -47,6 +47,11 @@ const account = {
    * о том, что снятие такой суммы не возможно, недостаточно средств.
    */
   withdraw(amount) {
+    if (amount > this.balance) {
+      let message = "Not enough money to perform the transaction";
+      return message;
+    }
+
     this.balance = this.balance - amount;
     const newTransaction = this.createTransaction(amount, Transaction.WITHDRAW);
     this.transactions.push(newTransaction);
@@ -86,3 +91,10 @@ const account = {
     return total;
   },
 };
+
+console.log(account.withdraw(100));
+console.log(account.getBalance());
+console.log(account.deposit(100));
+console.log(account.getBalance());
+console.log(account.getTransactionDetails(1));
+console.log(account.getTransactionDetails(5));
